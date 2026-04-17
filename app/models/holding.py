@@ -26,7 +26,7 @@ class Holding(IdMixin, TimestampMixin, ModelBase):
     # weighted average purchase price
     average_cost_price: Mapped[Decimal] = mapped_column(Numeric(18, 4), nullable=False)
 
-    notes: Mapped[str] = mapped_column(Text, nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     # relationships
     portfolio: Mapped["Portfolio"] = relationship(  # noqa: F821
