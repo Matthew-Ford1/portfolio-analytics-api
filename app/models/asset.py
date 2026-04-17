@@ -18,9 +18,7 @@ class Asset(IdMixin, TimestampMixin, ModelBase):
     __tablename__ = "assets"
 
     # define ticker uniquness constraint only within an exchange
-    __table_args__ = {
-        UniqueConstraint("ticker", "exchange", name="uq_asset_ticker_exchange"),
-    }
+    __table_args__ = (UniqueConstraint("ticker", "exchange", name="uq_asset_ticker_exchange"),)
 
     ticker: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
     exchange: Mapped[str] = mapped_column(String(20), nullable=False)

@@ -8,7 +8,7 @@ class Portfolio(IdMixin, TimestampMixin, ModelBase):
     __tablename__ = "portfolios"
 
     owner_id: Mapped[int] = mapped_column(
-        ForeignKey("owners.id", ondelete="CASCADE"),
+        ForeignKey("users.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )

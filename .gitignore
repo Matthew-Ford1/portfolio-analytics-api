@@ -11,3 +11,4 @@ wheels/
 
 # local env
 .env
+scripts
