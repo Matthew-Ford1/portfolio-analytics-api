@@ -1,10 +1,15 @@
 from typing import AsyncGenerator
+from contextlib import asynccontextmanager
 
 from app.db.session import async_session
 
-async def get_db() -> AsyncGenerator
+
+@asynccontextmanager
+async def get_db() -> AsyncGenerator:
     async with async_session() as session:
-            try:
-                yield session
-            finally:
-                await session.close()
+        try:
+            yield session
+            await session.commit()
+        except Exception:
+            await session.rollback()
+            raise

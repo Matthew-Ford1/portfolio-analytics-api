@@ -17,7 +17,7 @@ class IdMixin:
     Server-side generated identity as primary key.
     """
 
-    id: Mapped[int] = mapped_column(Identity(start=100), primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(start=100), primary_key=True, sort_order=-10)
 
 
 class TimestampMixin:

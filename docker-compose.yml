@@ -2,6 +2,10 @@ services:
   db:
     image: postgres:latest
 
+    environment:
+      - TZ=Australia/Sydney
+      - PGTZ=Australia/Sydney
+
     ports:
       - "5432:5432"
     env_file:
