@@ -30,8 +30,9 @@ where = ["."]
 include = ["app"]
 
 [tool.ruff]
-line-length = 120
+line-length = 100
 src = ["app", "tests"]
+exclude = ["alembic"]
 target-version = "py314"
 
 [tool.ruff.lint.isort]

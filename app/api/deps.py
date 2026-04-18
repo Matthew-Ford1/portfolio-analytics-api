@@ -1,5 +1,5 @@
-from typing import AsyncGenerator
 from contextlib import asynccontextmanager
+from typing import AsyncGenerator
 
 from app.db.session import async_session
 

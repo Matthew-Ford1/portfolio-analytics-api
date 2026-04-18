@@ -3,7 +3,7 @@ from enum import StrEnum, auto
 from sqlalchemy import Enum, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.models.base import ModelBase, IdMixin, TimestampMixin
+from app.models.base import IdMixin, ModelBase, TimestampMixin
 
 
 class AssetType(StrEnum):

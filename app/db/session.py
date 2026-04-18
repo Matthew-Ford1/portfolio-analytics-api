@@ -5,7 +5,7 @@ from app.core.config import config
 # Create async engine
 engine = create_async_engine(
     config.DATABASE_URL.get_secret_value(),
-    echo=True,  # True for initial testing
+    echo=False,  # True for initial testing
 )
 
 # Async session factory

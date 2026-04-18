@@ -3,14 +3,16 @@ from decimal import Decimal
 from sqlalchemy import ForeignKey, Numeric, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.models.base import ModelBase, IdMixin, TimestampMixin
+from app.models.base import IdMixin, ModelBase, TimestampMixin
 
 
 class Holding(IdMixin, TimestampMixin, ModelBase):
     __tablename__ = "holdings"
 
     # A portfolio can only hold one position per asset.
-    __table_args__ = (UniqueConstraint("portfolio_id", "asset_id", name="uq_holding_portfolio_asset"),)
+    __table_args__ = (
+        UniqueConstraint("portfolio_id", "asset_id", name="uq_holding_portfolio_asset"),
+    )
 
     portfolio_id: Mapped[int] = mapped_column(
         ForeignKey("portfolios.id", ondelete="CASCADE"), nullable=False, index=True

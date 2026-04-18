@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.models.base import ModelBase, IdMixin, TimestampMixin
+from app.models.base import IdMixin, ModelBase, TimestampMixin
 
 
 class User(IdMixin, TimestampMixin, ModelBase):

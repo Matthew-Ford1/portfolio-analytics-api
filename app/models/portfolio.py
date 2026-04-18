@@ -1,11 +1,13 @@
-from sqlalchemy import Boolean, Enum, ForeignKey, String, Text
+from sqlalchemy import Boolean, ForeignKey, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.models.base import ModelBase, IdMixin, TimestampMixin
+from app.models.base import IdMixin, ModelBase, TimestampMixin
 
 
 class Portfolio(IdMixin, TimestampMixin, ModelBase):
     __tablename__ = "portfolios"
+
+    __table_args__ = (UniqueConstraint("owner_id", "name", name="uq_user_portfolio_name"),)
 
     owner_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"),

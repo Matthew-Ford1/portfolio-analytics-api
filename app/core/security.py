@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
+
 import jwt
 from jwt.exceptions import InvalidTokenError
 from pwdlib import PasswordHash
 from pwdlib.hashers.argon2 import Argon2Hasher
 
 from app.core.config import config
-
 
 # verifies using all algorithms in list and provides updated hash if
 # first one wasn't used
